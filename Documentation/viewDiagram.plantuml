@@ -1,0 +1,33 @@
+@startuml
+
+package View <<Folder>>{
+
+class RPS_View
+class TurnView
+class PlayerView
+class BoardView
+
+RPS_View ..> TurnView
+TurnView ..> PlayerView
+TurnView ..> BoardView
+
+RPS_View : registerPlayer()
+RPS_View : init()
+RPS_View : play()
+RPS_View : printResults()
+
+TurnView : playTurn()
+
+PlayerView : showThrownOption()
+PlayerView : showPlayerInformation()
+
+BoardView : paintBoard()
+
+}
+
+
+
+
+
+
+@enduml

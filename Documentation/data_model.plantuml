@@ -1,29 +1,37 @@
 @startuml
 
-
+package Data <<Folder>>{
 class Player
 class Board
 class Turn
-enum Option
+class Option
 class TypePlayer
 
 Board *-- Turn
-Board o-- Option
 Turn *-- Player
 Player *-- TypePlayer
+Turn o-- Option
 
 Board : - id_board int
 Board : - max_rounds int
 Board : - round_counter int
-Board : - id_option option
+
 
 Option : - id_option int
 Option : - name string
 
+Turn : - id_turn int
+Turn : - id_player int
+Turn : - throw option
 
+Player : - id_player int
+Player : - name String
+Player : - id_playerType int
 
+TypePlayer : id_typePlayer int
+TypePlayer : name String
 
-
+}
 
 
 

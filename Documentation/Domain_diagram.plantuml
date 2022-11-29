@@ -11,11 +11,13 @@ object board
 object turn 
 object human
 object PC
+object goals
 
 
 RPS *--"2" player
 RPS *-- turn
 RPS *-- board
+player o--> goals
 
 
 player o-- getOption

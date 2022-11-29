@@ -1,0 +1,54 @@
+@startuml
+
+
+package Controller <<Folder>> {
+    class RPS_Controller
+    class PlayerController
+    class TurnController
+    class BoardController
+    class HumanController
+    class PcController
+
+    PcController --|> PlayerController
+    HumanController --|> PlayerController
+    PlayerController o--> BoardController
+    RPS_Controller --> BoardController
+    RPS_Controller --> TurnController
+
+
+    RPS_Controller : - Player player1
+    RPS_Controller : - Player player2
+    RPS_Controller : + init()
+    RPS_Controller : + play()
+    RPS_Controller : + createPlayer()
+
+    PlayerController : - String name
+    PlayerController : - Option option
+    PlayerController : - int winCounter
+    PlayerController : + {abstract}setOption()
+    PlayerController : + getOption():Option
+
+    BoardController : - int maxRound
+    BoardController : - int roundCounter
+    BoardController : - Board board
+    BoardController : - Turn turn
+    BoardController : + print()
+    BoardController : + isWinner()
+    BoardController : + getWinner():
+    BoardController : + getMinimumWinsCount():int
+
+    TurnController : Board board
+    TurnController : Player player1
+    TurnController : Player player2
+    TurnController : + execute():Option
+
+    HumanController : + setOption()
+    PcController : + setOption()
+    
+    
+}
+
+   
+  
+
+@enduml

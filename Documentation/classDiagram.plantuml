@@ -8,9 +8,11 @@ class Human
 class Pc
 enum Option
 
+
 RPS *-- Player
 RPS *-- Board
 RPS *-- Turn
+Player --> Board
 
 Player <|-- Human
 Player <|-- Pc
@@ -34,12 +36,17 @@ Player : + getOption():Option
 
 Board : - int maxRound
 Board : - int roundCounter
+Board : - Board board
+Board : - Turn turn
 Board : + print()
 Board : + isWinner()
 Board : + getWinner():
 Board : + getMinimumWinsCount():int
 
 
+Turn : - Board board
+Turn : - Player player1
+Turn : - Player player2
 Turn : + execute():Option
 
 
