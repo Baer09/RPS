@@ -1,0 +1,53 @@
+@startuml
+
+class RPS
+abstract class Player
+class Turn
+class Board
+class Human
+class Pc
+enum Option
+
+RPS *-- Player
+RPS *-- Board
+RPS *-- Turn
+
+Player <|-- Human
+Player <|-- Pc
+
+Board *-- Option
+Player --> Turn
+Board --> Turn
+
+RPS : - Player player1
+RPS : - Player player2
+RPS : + init()
+RPS : + play()
+RPS : + printResult()
+RPS : + createPlayer()
+
+Player : - String name
+Player : - Option option
+Player : - int winCounter
+Player : + {abstract}setOption()
+Player : + getOption():Option
+
+Board : - int maxRound
+Board : - int roundCounter
+Board : + print()
+Board : + isWinner()
+Board : + getWinner():
+Board : + getMinimumWinsCount():int
+
+
+Turn : + execute():Option
+
+
+Option : - ROCK
+Option : - SCISSORS
+Option : - PAPER
+
+
+
+
+@enduml

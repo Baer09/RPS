@@ -1,0 +1,30 @@
+@startuml
+
+
+class Player
+class Board
+class Turn
+enum Option
+class TypePlayer
+
+Board *-- Turn
+Board o-- Option
+Turn *-- Player
+Player *-- TypePlayer
+
+Board : - id_board int
+Board : - max_rounds int
+Board : - round_counter int
+Board : - id_option option
+
+Option : - id_option int
+Option : - name string
+
+
+
+
+
+
+
+
+@enduml

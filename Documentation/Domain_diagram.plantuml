@@ -1,0 +1,42 @@
+@startuml
+
+object RPS
+object player
+object getOption
+object rock
+object paper
+object scissors
+object option
+object board
+object turn 
+object human
+object PC
+
+
+RPS *--"2" player
+RPS *-- turn
+RPS *-- board
+
+
+player o-- getOption
+player <|-- human
+player <|-- PC
+player o--> option
+player --> turn
+turn <-- board
+
+option <--* board
+
+option <|-- rock
+option <|-- scissors
+option <|-- paper
+
+
+
+
+
+
+
+
+
+@enduml
